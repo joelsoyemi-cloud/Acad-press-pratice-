@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
 import Clients from "./pages/Clients";
 import NotFound from "./pages/NotFound";
+import Newsletter from "./pages/Newsletter";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/quote" element={<Quote />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/newsletter" element={<Newsletter />} />
         </Route>
       </Routes>
     </BrowserRouter>

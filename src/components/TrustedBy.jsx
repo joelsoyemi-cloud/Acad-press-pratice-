@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Building2 } from "lucide-react";
 
-const clients = ["MTN", "GTBank", "UBA", "Oando", "Stanbic IBTC", "Guinness"];
+const clients = [
+  { name: "UBA", logo: "/logos/uba.png" },
+  { name: "DHL", logo: "/logos/dhl.png" },
+  { name: "Wema Bank", logo: "/logos/wema-bank.jpeg" },
+  { name: "Union Bank", logo: "/logos/union-bank.png" },
+];
+
 const loop = [...clients, ...clients];
 
 export default function TrustedBy() {
@@ -21,16 +26,13 @@ export default function TrustedBy() {
           Trusted by <span className="text-brand">leading Organizations</span>
         </h2>
         <p className="text-brand-black/80 text-lg leading-relaxed mb-8">
-          We have had the opportunity of working for the following organizations
-          and have earned credible commendations from them, in the supply of all
-          products listed earlier.
+          We have had the opportunity of working for the following
+          organizations and have earned credible commendations from them, in
+          the supply of all products listed earlier.
         </p>
         <Link to="/clients">
           <motion.span
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 8px 25px rgba(152,40,54,0.35)",
-            }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 8px 25px rgba(152,40,54,0.35)" }}
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-brand text-white font-medium px-8 py-3.5 rounded-2xl cursor-pointer"
           >
@@ -40,25 +42,22 @@ export default function TrustedBy() {
       </motion.div>
 
       <div className="relative overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-white to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-16 bg-linear-to-l from-white to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
 
         <div className="grid grid-rows-2 gap-4">
           <div className="flex gap-4 animate-marquee w-max">
             {loop.map((c, i) => (
               <motion.div
                 key={`row1-${i}`}
-                whileHover={{
-                  y: -4,
-                  borderColor: "#982836",
-                  boxShadow: "0px 10px 25px rgba(152,40,54,0.15)",
-                }}
-                className="shrink-0 w-44 h-24 flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/10 bg-white transition-all"
+                whileHover={{ y: -4, borderColor: "#982836", boxShadow: "0px 10px 25px rgba(152,40,54,0.15)" }}
+                className="shrink-0 w-44 h-24 flex items-center justify-center rounded-2xl border border-black/10 bg-white transition-all p-4"
               >
-                <Building2 size={18} className="text-brand/50" />
-                <span className="font-semibold text-brand-black/80 text-base">
-                  {c}
-                </span>
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  className="max-w-full max-h-full object-contain"
+                />
               </motion.div>
             ))}
           </div>
@@ -69,17 +68,14 @@ export default function TrustedBy() {
             {loop.map((c, i) => (
               <motion.div
                 key={`row2-${i}`}
-                whileHover={{
-                  y: -4,
-                  borderColor: "#982836",
-                  boxShadow: "0px 10px 25px rgba(152,40,54,0.15)",
-                }}
-                className="shrink-0 w-44 h-24 flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/10 bg-white transition-all"
+                whileHover={{ y: -4, borderColor: "#982836", boxShadow: "0px 10px 25px rgba(152,40,54,0.15)" }}
+                className="shrink-0 w-44 h-24 flex items-center justify-center rounded-2xl border border-black/10 bg-white transition-all p-4"
               >
-                <Building2 size={18} className="text-brand/50" />
-                <span className="font-semibold text-brand-black/80 text-base">
-                  {c}
-                </span>
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  className="max-w-full max-h-full object-contain"
+                />
               </motion.div>
             ))}
           </div>

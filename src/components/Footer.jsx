@@ -77,25 +77,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <motion.a
-          href="#"
-          whileHover={{
-            scale: 1.03,
-            backgroundColor: "#ffffff",
-            color: "#000",
-          }}
-          whileTap={{ scale: 0.97 }}
-          className="border border-white text-white font-semibold px-8 py-3 rounded-2xl inline-block mb-12 transition-colors"
-        >
-          Subscribe to newsletters
-        </motion.a>
+       <Link to="/newsletter">
+  <motion.span
+    whileHover={{
+      scale: 1.03,
+      backgroundColor: "#ffffff",
+      color: "#000",
+    }}
+    whileTap={{ scale: 0.97 }}
+    className="border border-white text-white font-semibold px-8 py-3 rounded-2xl inline-block mb-12 transition-colors cursor-pointer"
+  >
+    Subscribe to newsletters
+  </motion.span>
+</Link>   
 
         <div className="border-t border-white/15 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/50 text-sm">
           <p>
             © 2026 Academy Press Specialized Print Services Limited. All rights
             reserved
           </p>
-          <p>Designed by Greenmouse</p>
+          <p>Designed by dev-joel</p>
         </div>
       </div>
     </footer>
