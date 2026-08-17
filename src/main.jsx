@@ -12,9 +12,11 @@ import Quote from "./pages/Quote";
 import Clients from "./pages/Clients";
 import NotFound from "./pages/NotFound";
 import Newsletter from "./pages/Newsletter";
+import PasswordGate from "./components/PasswordGate";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <PasswordGate>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
@@ -30,5 +32,6 @@ createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </BrowserRouter>
+    </PasswordGate>
   </StrictMode>,
 );
