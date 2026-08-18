@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Lock } from "lucide-react";
 
-const SITE_PASSWORD = "academypress2026"; // change this to whatever you want
+const SITE_PASSWORD = "acadpress"; 
 
 export default function PasswordGate({ children }) {
   const [unlocked, setUnlocked] = useState(false);
