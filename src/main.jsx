@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import FAQPage from "./pages/FAQPage";
+import FAQpage from "./pages/FAQpage";
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
 import Clients from "./pages/Clients";
@@ -23,7 +23,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/faqs" element={<FAQPage />} />
+          <Route path="/faqs" element={<FAQpage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/clients" element={<Clients />} />
