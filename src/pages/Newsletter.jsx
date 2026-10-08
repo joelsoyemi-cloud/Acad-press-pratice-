@@ -92,6 +92,7 @@ export default function Newsletter() {
             className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
           >
             <input
+              aria-label="Email address"
               type="email"
               name="email"
               required

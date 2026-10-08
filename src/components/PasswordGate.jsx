@@ -1,33 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Lock } from "lucide-react";
 
 const SITE_PASSWORD = "acadpress"; 
 
 export default function PasswordGate({ children }) {
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState(() => {
+    try { return sessionStorage.getItem("site_unlocked") === "true"; }
+    catch { return false; }
+  });
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
-  const [checked, setChecked] = useState(false);
-
-  useEffect(() => {
-    const saved = sessionStorage.getItem("site_unlocked");
-    if (saved === "true") setUnlocked(true);
-    setChecked(true);
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (input === SITE_PASSWORD) {
-      sessionStorage.setItem("site_unlocked", "true");
+      try { sessionStorage.setItem("site_unlocked", "true"); }
+      catch { /* Preview still opens when browser storage is unavailable. */ }
       setUnlocked(true);
       setError(false);
     } else {
       setError(true);
     }
   }
-
-  if (!checked) return null; // avoid flashing the gate before checking sessionStorage
 
   if (unlocked) return children;
 
@@ -50,6 +45,8 @@ export default function PasswordGate({ children }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
+            aria-label="Preview access code"
+            aria-invalid={error}
             type="password"
             value={input}
             onChange={(e) => {

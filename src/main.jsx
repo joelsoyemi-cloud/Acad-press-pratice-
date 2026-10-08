@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import FAQpage from "./pages/FAQpage";
+import FAQpage from "./pages/FAQPage";
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
 import Clients from "./pages/Clients";

@@ -1,16 +1,36 @@
-# React + Vite
+# Academy Press — React rebuild
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal frontend practice project by Joel Soyemi, rebuilding an Academy Press printing-services design with React. This is a portfolio demonstration, not a claim of employment or an official company website.
 
-Currently, two official plugins are available:
+**Preview:** https://acad-press-pratice.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
+React, Vite, Tailwind CSS, React Router, Framer Motion and Lucide icons.
 
-## React Compiler
+## Features
+- Eight pages: Home, About, Services, FAQs, Contact, Quote, Clients and Newsletter; plus a not-found route.
+- Shared layout and reusable components with responsive mobile navigation.
+- Animated page transitions, interactive FAQs and scroll effects.
+- Formspree integration for contact enquiries, quote requests and newsletter signups, with sending/success/error states.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
+```sh
+npm ci
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Checks
+```sh
+npm run lint
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Preview access
+The current preview code is `acadpress` (lowercase). The browser-side gate is only a demo barrier, not secure authentication; do not place confidential information behind it.
+
+## Form setup
+Contact, Quote and Newsletter currently share the existing Formspree endpoint. Confirm inbox ownership and delivery before real use. Newsletter submissions collect enquiries; this does not implement a mailing-list or unsubscribe service.
+
+## Deployment
+Vercel is configured to rewrite application routes to index.html for React Router. The GitHub-connected deployment can rebuild when main is updated.

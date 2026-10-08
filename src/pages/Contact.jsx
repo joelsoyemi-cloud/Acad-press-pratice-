@@ -107,11 +107,12 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {fields.map((f) => (
                 <div key={f.name}>
-                  <label className="block text-brand-black font-medium mb-2">
+                  <label htmlFor={f.name} className="block text-brand-black font-medium mb-2">
                     {f.label}
                   </label>
                   <motion.input
                     whileFocus={{ scale: 1.01, borderColor: "#982836" }}
+                    id={f.name}
                     name={f.name}
                     type={f.type}
                     required
@@ -121,11 +122,12 @@ export default function Contact() {
                 </div>
               ))}
               <div>
-                <label className="block text-brand-black font-medium mb-2">
+                <label htmlFor="message" className="block text-brand-black font-medium mb-2">
                   Message
                 </label>
                 <motion.textarea
                   whileFocus={{ scale: 1.01, borderColor: "#982836" }}
+                  id="message"
                   name="message"
                   required
                   rows={5}
@@ -135,7 +137,7 @@ export default function Contact() {
               </div>
 
               {status === "error" && (
-                <p className="text-red-600 text-sm">
+                <p role="alert" className="text-red-600 text-sm">
                   Something went wrong — please try again or email us directly.
                 </p>
               )}

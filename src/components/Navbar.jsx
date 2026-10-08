@@ -78,6 +78,9 @@ export default function Navbar() {
 
         <button
           className="lg:hidden text-brand-black"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
         >
           {open ? <X /> : <Menu />}
@@ -87,6 +90,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            id="mobile-navigation"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -105,7 +109,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                to="/contact"
+                to="/quote"
                 className="mt-3 text-center bg-brand text-white py-3 rounded-2xl font-medium"
                 onClick={() => setOpen(false)}
               >

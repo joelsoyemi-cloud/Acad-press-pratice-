@@ -24,3 +24,12 @@
 
 html { scroll-behavior: smooth; }
 body { font-family: "Inter", sans-serif; overflow-x: hidden; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #982836;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-blob { animation: none; }
+}

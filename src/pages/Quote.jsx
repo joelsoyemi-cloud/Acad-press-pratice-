@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import PageHero from "../components/PageHero";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // same one from Contact, or a separate form
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvkpbplj"; // Shared project enquiry inbox
 
 const textFields = [
   {
@@ -62,6 +62,7 @@ export default function Quote() {
     setStatus("sending");
     const form = e.target;
     const data = new FormData(form);
+    data.append("_subject", "New Academy Press Quote Request");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -129,11 +130,12 @@ export default function Quote() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
                 >
-                  <label className="block text-brand-black font-medium mb-2">
+                  <label htmlFor={f.name} className="block text-brand-black font-medium mb-2">
                     {f.label}
                   </label>
                   <motion.input
                     whileFocus={{ scale: 1.01, borderColor: "#982836" }}
+                    id={f.name}
                     name={f.name}
                     type={f.type}
                     required
@@ -144,11 +146,12 @@ export default function Quote() {
               ))}
 
               <div>
-                <label className="block text-brand-black font-medium mb-2">
+                <label htmlFor="serviceType" className="block text-brand-black font-medium mb-2">
                   Service Type
                 </label>
                 <motion.select
                   whileFocus={{ scale: 1.01, borderColor: "#982836" }}
+                  id="serviceType"
                   name="serviceType"
                   required
                   defaultValue=""
@@ -166,11 +169,12 @@ export default function Quote() {
               </div>
 
               <div>
-                <label className="block text-brand-black font-medium mb-2">
+                <label htmlFor="details" className="block text-brand-black font-medium mb-2">
                   Service Details
                 </label>
                 <motion.textarea
                   whileFocus={{ scale: 1.01, borderColor: "#982836" }}
+                  id="details"
                   name="details"
                   rows={5}
                   placeholder="Tell us more about what you need..."
@@ -179,7 +183,7 @@ export default function Quote() {
               </div>
 
               {status === "error" && (
-                <p className="text-red-600 text-sm">
+                <p role="alert" className="text-red-600 text-sm">
                   Something went wrong — please try again or contact us
                   directly.
                 </p>

@@ -25,6 +25,7 @@ function FAQItem({ faq, isOpen, onClick }) {
   return (
     <div className="border-b border-white/30">
       <button
+        aria-expanded={isOpen}
         onClick={onClick}
         className="w-full flex items-center justify-between py-6 text-left"
       >
